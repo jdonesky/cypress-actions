@@ -1,0 +1,8 @@
+{
+    "experimentalStudio": true,
+    "video": true,
+    "projectId": "MovieDb",
+    "env": {
+        "REACT_APP_MOVIE_API": "fake"
+    }
+}
