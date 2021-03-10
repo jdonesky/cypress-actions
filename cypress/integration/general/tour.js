@@ -1,10 +1,12 @@
 describe("make sure site loads", () => {
   beforeEach(() => {
+    const API_KEY = Cypress.env("REACT_APP_MOVIE_API");
     const configUrl =
-      "https://api.themoviedb.org/3/configuration?api_key=cc9872fea54d44034cda8029df86a696";
+      "https://api.themoviedb.org/3/configuration?api_key=" + API_KEY;
     const moviesListUrl =
-      "https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&api_key=cc9872fea54d44034cda8029df86a696";
-    cy.intercept(configUrl, { fixture: "config" });  
+      "https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&api_key=" +
+      API_KEY;
+    cy.intercept(configUrl, { fixture: "config" });
     cy.intercept(moviesListUrl, { fixture: "moviesList" });
     cy.visit("http://localhost:3000/");
   });
